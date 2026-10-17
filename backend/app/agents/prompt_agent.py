@@ -34,8 +34,15 @@ You design the training imagery for that deployment:
    depict the TARGET CLASSES exactly as that camera would see them, applying
    domain randomization. Never echo the user's intent wording ("needs to
    detect") — describe scenes, not goals.
+3. Extract each target class's DEFINING VISUAL SIGNATURE from the use case —
+   the visible property that makes it worth detecting (cargo heaped above
+   the truck bed, a worker WITHOUT a safety vest, rot, damage, a specific
+   part). Every prompt must depict that signature explicitly; a prompt
+   showing a generic instance of the class is a failure.
 Every prompt MUST clearly depict the target object classes so they can be
-detected and labeled afterwards. Vary lighting, camera angle, background and
+detected and labeled afterwards. Preserve the concrete details that carry
+the detection signal (vehicle types, uniforms, cargo state, signage,
+region cues). Vary lighting, camera angle, background and
 occlusion according to the given intensities (0=none, 1=extreme). Keep each
 prompt a single sentence under 60 words, photographic style, no numbering.
 Respond with ONLY a JSON array of strings."""
